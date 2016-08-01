@@ -11,4 +11,12 @@
 |
 */
 
+Route::get('/', function () {
+    return view('home');
+});
+
 Route::get('/members', 'MemberController@index');
+
+Route::resource('meetings', 'MeetingsController');
+
+Route::get('/meetings/coming', 'MeetingsController@coming');
