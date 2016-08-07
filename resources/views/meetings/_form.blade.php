@@ -1,52 +1,87 @@
-{{ Form::label('date', 'Date') }}
-{{ Form::date('date') }}
+<div>
+    {{ Form::label('date', 'Date') }}
+    {{ Form::date('date') }}
 
-{{ Form::label('time', 'Time') }}
-{{ Form::time('time') }}
+    {{ Form::label('time', 'Time') }}
+    {{ Form::time('time') }}
+</div>
 
-{{ Form::label('room', 'Room') }}
-{{ Form::text('room') }}
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    {{ Form::text('room', null, ['class' => 'mdl-textfield__input']) }}
+    {{ Form::label('room', 'Room', ['class' => 'mdl-textfield__label']) }}
+</div>
 
-{{ Form::label('theme', 'Theme') }}
-{{ Form::text('theme') }}
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    {{ Form::label('theme', 'Theme', ['class' => 'mdl-textfield__label']) }}
+    {{ Form::text('theme', null, ['class' => 'mdl-textfield__input']) }}
+</div>
 
-{{ Form::label('opening', 'Opening Remarks') }}
-{{ Form::select('opening', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('opening', 'Opening Remarks') }}
+    {{ Form::select('opening', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('welcome', 'Welcome Guests') }}
-{{ Form::select('welcome', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('welcome', 'Welcome Guests') }}
+    {{ Form::select('welcome', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('tme', 'Toastmaster of the Evening') }}
-{{ Form::select('tme', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('tme', 'Toastmaster of the Evening') }}
+    {{ Form::select('tme', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('speaker1', '1st Speech') }}
-{{ Form::select('speaker1', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('speaker1', '1st Speech') }}
+    {{ Form::select('speaker1', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('speaker2', '2nd Speech') }}
-{{ Form::select('speaker2', $members, null, ['placeholder' => 'Choose a member...']) }}
 
-{{ Form::label('speaker3', '3nd Speech') }}
-{{ Form::select('speaker3', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('speaker2', '2nd Speech') }}
+    {{ Form::select('speaker2', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('speaker4', '4nd Speech') }}
-{{ Form::select('speaker4', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('speaker3', '3nd Speech') }}
+    {{ Form::select('speaker3', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('tablemaster', 'Table Topic Master') }}
-{{ Form::select('tablemaster', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('speaker4', '4nd Speech') }}
+    {{ Form::select('speaker4', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('timer', 'Timer\'s Report') }}
-{{ Form::select('tiner', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('tablemaster', 'Table Topic Master') }}
+    {{ Form::select('tablemaster', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('ahcounter', 'Ah-counter\'s Report') }}
-{{ Form::select('ahcounter', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('timer', 'Timer\'s Report') }}
+    {{ Form::select('timer', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('grammarian', 'Grammarian\'s Report') }}
-{{ Form::select('grammarian', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('ahcounter', 'Ah-counter\'s Report') }}
+    {{ Form::select('ahcounter', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('general', 'General Evaluator\'s Report') }}
-{{ Form::select('general', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('grammarian', 'Grammarian\'s Report') }}
+    {{ Form::select('grammarian', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::label('closing', 'Closing Remarks') }}
-{{ Form::select('closing', $members, null, ['placeholder' => 'Choose a member...']) }}
+<div>
+    {{ Form::label('general', 'General Evaluator\'s Report') }}
+    {{ Form::select('general', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
 
-{{ Form::submit('Update Coming Meeting Details') }}
+<div>
+    {{ Form::label('closing', 'Closing Remarks') }}
+    {{ Form::select('closing', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
+
+{{ Form::submit('Update Coming Meeting Details', ['name' => 'update', 'class' => 'mdl-button mdl-js-button mdl-button--raised']) }}
+{{ Form::submit('Close and Generate Printed Agenda', ['name' => 'close', 'class' => 'mdl-button mdl-js-button mdl-button--raised']) }}
+
