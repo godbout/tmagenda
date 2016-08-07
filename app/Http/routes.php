@@ -20,3 +20,7 @@ Route::get('/members', 'MemberController@index');
 Route::resource('meetings', 'MeetingsController');
 
 Route::get('/meetings/coming', 'MeetingsController@coming');
+
+Route::resource('/agendas', 'AgendasController', ['only' => [
+    'index', 'show', 'store'
+]]);
