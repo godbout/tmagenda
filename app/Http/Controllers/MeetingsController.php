@@ -10,6 +10,8 @@ use App\Meeting;
 
 use App\Member;
 
+use App\Agenda;
+
 class MeetingsController extends Controller
 {
     /**
@@ -123,23 +125,31 @@ class MeetingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $members = Member::lists('fullname', 'id');
         $meeting = Meeting::find($id);
-
+        
         $data = $request->all();
         foreach ($data as $key => $value) {
             if (empty($value) === true) {
                 unset($data[$key]);
             }
         }
-
         $meeting->update($data);
-        $meeting->save();
 
-        return view('meetings.edit', [
-            'meeting' => $meeting,
-            'members' => $members,
-        ]);
+        if ($request->has('update')) {
+            $members = Member::lists('fullname', 'id');
+            
+            return view('meetings.edit', [
+                'meeting' => $meeting,
+                'members' => $members,
+            ]);
+        } elseif ($request->has('close')) {
+            $meeting->coming = false;
+            $meeting->save();
+
+            $agenda = Agenda::create($data);
+
+            return redirect()->route('agendas.show', ['id' => $agenda->id]);
+        }
     }
 
     /**
