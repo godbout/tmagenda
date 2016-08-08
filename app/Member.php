@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    public function getName()
+    public function getNameWithTitle()
     {
         return $this->fullname;
     }
