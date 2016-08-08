@@ -146,6 +146,24 @@ class MeetingsController extends Controller
             $meeting->coming = false;
             $meeting->save();
 
+            $data['opening'] = Member::find($data['opening'])->getNameWithTitle();
+            $data['welcome'] = Member::find($data['welcome'])->getNameWithTitle();
+            $data['tme'] = Member::find($data['tme'])->getNameWithTitle();
+            $data['speaker1'] = Member::find($data['speaker1'])->getNameWithTitle();
+            $data['speaker2'] = Member::find($data['speaker2'])->getNameWithTitle();
+            $data['speaker3'] = Member::find($data['speaker3'])->getNameWithTitle();
+            $data['speaker4'] = Member::find($data['speaker4'])->getNameWithTitle();
+            $data['tablemaster'] = Member::find($data['tablemaster'])->getNameWithTitle();
+            $data['evaluator1'] = Member::find($data['evaluator1'])->getNameWithTitle();
+            $data['evaluator2'] = Member::find($data['evaluator2'])->getNameWithTitle();
+            $data['evaluator3'] = Member::find($data['evaluator3'])->getNameWithTitle();
+            $data['evaluator4'] = Member::find($data['evaluator4'])->getNameWithTitle();
+            $data['timer'] = Member::find($data['timer'])->getNameWithTitle();
+            $data['ahcounter'] = Member::find($data['ahcounter'])->getNameWithTitle();
+            $data['grammarian'] = Member::find($data['grammarian'])->getNameWithTitle();
+            $data['general'] = Member::find($data['general'])->getNameWithTitle();
+            $data['closing'] = Member::find($data['closing'])->getNameWithTitle();
+
             $agenda = Agenda::create($data);
 
             return redirect()->route('agendas.show', ['id' => $agenda->id]);
