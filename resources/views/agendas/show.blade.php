@@ -24,7 +24,7 @@
             <tr>
                 <td class="mdl-data-table__cell--non-numeric">{{ $agenda->time }}</td>
                 <td class="mdl-data-table__cell--non-numeric">Opening Remarks</td>
-                <td>{{ $agenda->opening->fullname }}</td>
+                <td>{{ $agenda->opening }}</td>
                 <td>1</td>
             </tr>
             <tr>
