@@ -43,18 +43,39 @@
 </div>
 
 <div>
-    {{ Form::label('speaker3', '3nd Speech') }}
+    {{ Form::label('speaker3', '3rd Speech') }}
     {{ Form::select('speaker3', $members, null, ['placeholder' => 'Choose a member...']) }}
 </div>
 
 <div>
-    {{ Form::label('speaker4', '4nd Speech') }}
+    {{ Form::label('speaker4', '4th Speech') }}
     {{ Form::select('speaker4', $members, null, ['placeholder' => 'Choose a member...']) }}
 </div>
 
 <div>
     {{ Form::label('tablemaster', 'Table Topic Master') }}
     {{ Form::select('tablemaster', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
+
+<div>
+    {{ Form::label('evaluator1', '1st Evaluator') }}
+    {{ Form::select('evaluator1', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
+
+
+<div>
+    {{ Form::label('evaluator2', '2nd Evaluator') }}
+    {{ Form::select('evaluator2', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
+
+<div>
+    {{ Form::label('evaluator3', '3rd Evaluator') }}
+    {{ Form::select('evaluator3', $members, null, ['placeholder' => 'Choose a member...']) }}
+</div>
+
+<div>
+    {{ Form::label('evaluator4', '4th Evaluator') }}
+    {{ Form::select('evaluator4', $members, null, ['placeholder' => 'Choose a member...']) }}
 </div>
 
 <div>
