@@ -8,6 +8,6 @@ class Member extends Model
 {
     public function getNameWithTitle()
     {
-        return $this->fullname;
+        return (empty($this->title) === true ? $this->fullname : $member->fullname .', ' .$this->title);
     }
 }
