@@ -13,10 +13,14 @@ class AddProjectsToMeetingsTable extends Migration
     public function up()
     {
         Schema::table('meetings', function (Blueprint $table) {
-            $table->json('project1_details');
-            $table->json('project2_details');
-            $table->json('project3_details');
-            $table->json('project4_details');
+            $table->integer('project1_type')->unsigned()->nullable();
+            $table->string('project1_title');
+            $table->integer('project2_type')->unsigned()->nullable();
+            $table->string('project2_title');
+            $table->integer('project3_type')->unsigned()->nullable();
+            $table->string('project3_title');
+            $table->integer('project4_type')->unsigned()->nullable();
+            $table->string('project4_title');
         });
     }
 
@@ -28,10 +32,14 @@ class AddProjectsToMeetingsTable extends Migration
     public function down()
     {
         Schema::table('meetings', function (Blueprint $table) {
-            $table->dropColumn('project1_details');
-            $table->dropColumn('project2_details');
-            $table->dropColumn('project3_details');
-            $table->dropColumn('project4_details');
+            $table->dropColumn('project1_type');
+            $table->dropColumn('project1_title');
+            $table->dropColumn('project2_type');
+            $table->dropColumn('project2_title');
+            $table->dropColumn('project3_type');
+            $table->dropColumn('project3_title');
+            $table->dropColumn('project4_type');
+            $table->dropColumn('project4_title');
         });
     }
 }
