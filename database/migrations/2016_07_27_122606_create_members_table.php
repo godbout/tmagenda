@@ -16,11 +16,11 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->integer('tm_id')->unsigned();
             $table->string('fullname');
+            $table->string('title');
             $table->string('phone');
             $table->string('email');
             $table->boolean('pag');
             $table->timestamps();
-
         });
     }
 
