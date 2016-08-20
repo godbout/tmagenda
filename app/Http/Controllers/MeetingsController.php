@@ -12,6 +12,8 @@ use App\Member;
 
 use App\Agenda;
 
+use App\Project;
+
 class MeetingsController extends Controller
 {
     /**
@@ -35,13 +37,15 @@ class MeetingsController extends Controller
      */
     public function create()
     {
-        $members = Member::lists('fullname', 'id');
+        $members = Member::orderBy('fullname')->pluck('fullname', 'id');
+        $projects = Project::get()->pluck('display_name', 'id');
 
         $comingMeeting = Meeting::where('coming', 1)->first();
 
         if ($comingMeeting === null) {
             return view('meetings.create', [
-                'members' => $members
+                'members' => $members,
+                'projects' => $projects,
             ]);
         } else {
             return redirect()->route('meetings.edit', ['id' => $comingMeeting->id]);
@@ -77,7 +81,7 @@ class MeetingsController extends Controller
             }
 
             $comingMeeting = Meeting::create($data);
-            $comingMeeting->coming = 1;
+            $comingMeeting->coming = true;
             $comingMeeting->save();
 
             return redirect()->route('meetings.edit', ['id' => $comingMeeting->id]);
@@ -107,12 +111,14 @@ class MeetingsController extends Controller
     public function edit($id)
     {
         $members = Member::lists('fullname', 'id');
+        $projects = Project::get()->pluck('display_name', 'id');
 
         $meeting = Meeting::find($id);
 
         return view('meetings.edit', [
             'meeting' => $meeting,
             'members' => $members,
+            'projects' => $projects,
         ]);
     }
 
@@ -126,7 +132,7 @@ class MeetingsController extends Controller
     public function update(Request $request, $id)
     {
         $meeting = Meeting::find($id);
-        
+
         $data = $request->all();
         foreach ($data as $key => $value) {
             if (empty($value) === true) {
@@ -137,32 +143,25 @@ class MeetingsController extends Controller
 
         if ($request->has('update')) {
             $members = Member::lists('fullname', 'id');
+            $projects = Project::get()->pluck('display_name', 'id');
             
             return view('meetings.edit', [
                 'meeting' => $meeting,
                 'members' => $members,
+                'projects' => $projects,
             ]);
         } elseif ($request->has('close')) {
             $meeting->coming = false;
             $meeting->save();
 
-            $data['opening'] = Member::find($data['opening'])->getNameWithTitle();
-            $data['welcome'] = Member::find($data['welcome'])->getNameWithTitle();
-            $data['tme'] = Member::find($data['tme'])->getNameWithTitle();
-            $data['speaker1'] = Member::find($data['speaker1'])->getNameWithTitle();
-            $data['speaker2'] = Member::find($data['speaker2'])->getNameWithTitle();
-            $data['speaker3'] = Member::find($data['speaker3'])->getNameWithTitle();
-            $data['speaker4'] = Member::find($data['speaker4'])->getNameWithTitle();
-            $data['tablemaster'] = Member::find($data['tablemaster'])->getNameWithTitle();
-            $data['evaluator1'] = Member::find($data['evaluator1'])->getNameWithTitle();
-            $data['evaluator2'] = Member::find($data['evaluator2'])->getNameWithTitle();
-            $data['evaluator3'] = Member::find($data['evaluator3'])->getNameWithTitle();
-            $data['evaluator4'] = Member::find($data['evaluator4'])->getNameWithTitle();
-            $data['timer'] = Member::find($data['timer'])->getNameWithTitle();
-            $data['ahcounter'] = Member::find($data['ahcounter'])->getNameWithTitle();
-            $data['grammarian'] = Member::find($data['grammarian'])->getNameWithTitle();
-            $data['general'] = Member::find($data['general'])->getNameWithTitle();
-            $data['closing'] = Member::find($data['closing'])->getNameWithTitle();
+            foreach ($data as $key => $value) {
+                $member = Member::find($data[$key]);
+
+                if ($member !== null) {
+                    var_dump($member->getNameWithTitle());
+                    $data[$key] = $member->getNameWithTitle();    
+                }
+            }
 
             $agenda = Agenda::create($data);
 

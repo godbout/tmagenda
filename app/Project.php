@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    public function getShortname()
+    public function getDisplayNameAttribute()
     {
         $words = preg_split("/\s+/", $this->category);
         $initials = '';
