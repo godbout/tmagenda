@@ -34,22 +34,30 @@
 <div>
     {{ Form::label('speaker1', '1st Speech') }}
     {{ Form::select('speaker1', $members, null, ['placeholder' => 'Choose a member...']) }}
+    {{ Form::select('project1_type', $projects, null, ['placeholder' => 'Choose a project...']) }}
+    {{ Form::text('project1_title') }}
 </div>
 
 
 <div>
     {{ Form::label('speaker2', '2nd Speech') }}
     {{ Form::select('speaker2', $members, null, ['placeholder' => 'Choose a member...']) }}
+    {{ Form::select('project2_type', $projects, null, ['placeholder' => 'Choose a project...']) }}
+    {{ Form::text('project2_title') }}
 </div>
 
 <div>
     {{ Form::label('speaker3', '3rd Speech') }}
     {{ Form::select('speaker3', $members, null, ['placeholder' => 'Choose a member...']) }}
+    {{ Form::select('project3_type', $projects, null, ['placeholder' => 'Choose a project...']) }}
+    {{ Form::text('project3_title') }}
 </div>
 
 <div>
     {{ Form::label('speaker4', '4th Speech') }}
     {{ Form::select('speaker4', $members, null, ['placeholder' => 'Choose a member...']) }}
+    {{ Form::select('project4_type', $projects, null, ['placeholder' => 'Choose a project...']) }}
+    {{ Form::text('project4_title') }}
 </div>
 
 <div>
