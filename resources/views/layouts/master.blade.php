@@ -2,29 +2,53 @@
 <html>
     <head>
         <title>@yield('title')</title>
-        <link rel="stylesheet" href="/css/material.min.css">
-        <script src="/js/material.min.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        {{-- <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> --}}
+
+        <!-- Material Design fonts -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Bootstrap Material Design -->
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
+        <link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
+
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
     </head>
     <body>
 
         <div class="container">
-            
-            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-                
-                <div class="mdl-layout__drawer">
-                    <span class="mdl-layout__title">TM PAG Agenda</span>
-                        <nav class="mdl-navigation">
-                            <a href="/members" class="mdl-navigation__link">Members List</a>
-                            <a href="/meetings" class="mdl-navigation__link">Meetings List</a>
-                            <a href="/meetings/create" class="mdl-navigation__link">Coming Meeting Details</a>
-                            <a href="/agendas" class="mdl-navigation__link">Agendas List</a>
-                        </nav>
-                </div>
 
-                <main class="mdl-layout__content">
+            <div class="navbar navbar-default">
+                <div class="container-fuild">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar">test</span>
+                            <span class="icon-bar">test</span>
+                            <span class="icon-bar">test</span>
+                        </button>
+                        <a href="/" class="navbar-brand">TM Agendas Manager</a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/members" class="mdl-navigation__link">Members List</a></li>
+                            <li><a href="/meetings" class="mdl-navigation__link">Meetings List</a></li>
+                            <li><a href="/meetings/create" class="mdl-navigation__link">Coming Meeting Details</a></li>
+                            <li><a href="/agendas" class="mdl-navigation__link">Agendas List</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            
+                <main class="">
                     <div class="page-content">
-                        <div class="mdl-grid">
+                        <div class="container">
                             @yield('content')
                         </div>
                     </div>
@@ -68,5 +92,8 @@
             </div>
 
         </div> --}}
+        <script type="text/javascript" src="/js/material.min.js"></script>
+        <script type="text/javascript" src="/js/ripples.min.js"></script>
+        <script>$.material.init()</script>
     </body>
 </html>

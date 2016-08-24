@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {!! Form::model($meeting, ['method' => 'PATCH', 'route' => ['meetings.update', $meeting->id]]) !!}
+    {!! Form::model($meeting, ['method' => 'PATCH', 'route' => ['meetings.update', $meeting->id], 'class' => 'form-horizontal']) !!}
 
         @include('meetings._form')
 

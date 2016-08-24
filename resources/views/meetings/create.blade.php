@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {!! Form::open(['route' => 'meetings.store']) !!}
+    {!! Form::open(['route' => 'meetings.store', 'class' => 'form-horizontal']) !!}
 
         @include('meetings._form')
 

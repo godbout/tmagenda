@@ -4,20 +4,20 @@
 
 @section('content')
 
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th class="mdl-data-table__cell--non-numeric">Name</th>
-                <th class="mdl-data-table__cell--non-numeric">Phone</th>
-                <th class="mdl-data-table__cell--non-numeric">Email</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($members as $member)
                 <tr>
-                    <td class="mdl-data-table__cell--non-numeric">{{ $member->fullname }}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{ $member->phone }}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{ $member->email }}</td>
+                    <td>{{ $member->fullname }}</td>
+                    <td>{{ $member->phone }}</td>
+                    <td>{{ $member->email }}</td>
                 </tr>
             @endforeach
         </tbody>
