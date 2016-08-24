@@ -12,5 +12,8 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.copy('node_modules/bootstrap-material-design/dist/css/', 'public/css/')
+        .copy('node_modules/bootstrap-material-design/dist/js/', 'public/js/')
+        .copy('node_modules/bootstrap-material-design/bower_components/jquery/dist/jquery.min.js', 'public/js/')
+        .sass('app.scss');
 });
